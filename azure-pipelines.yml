@@ -45,10 +45,10 @@ steps:
   inputs:
     PathtoPublish: $(build.artifactstagingdirectory)
 
-- task: AzureWebApp@1
-  displayName: Azure Web App Deploy
-  inputs:
-    azureSubscription: $(serviceConnectionToAzure)
-    appType: webAppLinux
-    appName: $(appName)
-    package: $(build.artifactstagingdirectory)/**/*.war
+#- task: AzureWebApp@1
+#  displayName: Azure Web App Deploy
+#  inputs:
+#    azureSubscription: $(serviceConnectionToAzure)
+#    appType: webAppLinux
+#    appName: $(appName)
+#    package: $(build.artifactstagingdirectory)/**/*.war
