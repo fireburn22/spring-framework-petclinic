@@ -62,7 +62,6 @@ steps:
    # cliProjectName: 'spring-framework-petclinic'
 
 - task: SonarCloudPrepare@1
-
   inputs:
     SonarCloud: 'sonarcloud'
     organization: 'fireburn22-github'
@@ -72,7 +71,7 @@ steps:
     cliProjectName: 'spring-framework-petclinic'
     cliSources: '.'
     extraProperties: 'sonar.projectBaseDir=/home/vsts/work/1/s
-      sonar.sources=src'
+      sonar.sources=src''
     
 
 - task: SonarCloudAnalyze@1
