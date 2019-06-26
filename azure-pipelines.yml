@@ -50,8 +50,7 @@ steps:
   inputs:
     SonarCloud: 'sonartest'
     organization: 'fireburn22-github'
-    scannerMode: 'CLI'
-    configMode: 'file'
+    scannerMode: 'Other'
 
 - task: SonarCloudAnalyze@1
 #- task: AzureWebApp@1
