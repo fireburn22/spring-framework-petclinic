@@ -22,6 +22,20 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sonartest'
+    organization: 'fireburn22-github'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'fireburn22_spring-framework-petclinic'
+    cliProjectName: 'spring-framework-petclinic'
+    cliSources: '/home/vsts/work/1/s/.git/'
+
+- task: SonarCloudAnalyze@1
+
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
@@ -40,17 +54,7 @@ steps:
     SourceFolder: $(system.defaultworkingdirectory)
     Contents: '**'
     TargetFolder: $(build.artifactstagingdirectory)
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'sonartest'
-    organization: 'fireburn22-github'
-    scannerMode: 'CLI'
-    configMode: 'manual'
-    cliProjectKey: 'fireburn22_spring-framework-petclinic'
-    cliProjectName: 'spring-framework-petclinic'
-    cliSources: '/home/vsts/work/1/s/.git/'
 
-- task: SonarCloudAnalyze@1
 - task: PublishBuildArtifacts@1
   displayName: Publish Artifact
   inputs:
