@@ -26,7 +26,7 @@ steps:
 #  displayName: List contents of a folder
 
 - script: dir
-  workingDirectory: $(Build.Repository.LocalPath)/src
+  workingDirectory: $(Build.Repository.LocalPath)
   displayName: List contents of a folder
 
 
@@ -61,6 +61,7 @@ steps:
    # cliProjectKey: 'fireburn22_spring-framework-petclinic'
    # cliProjectName: 'spring-framework-petclinic'
 
+
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'sonarcloud'
@@ -69,7 +70,8 @@ steps:
     configMode: 'manual'
     cliProjectKey: 'fireburn22_spring-framework-petclini'
     cliProjectName: 'spring-framework-petclinic'
-    cliSources: '/home/vsts/work/1/s'
+    cliSources: '.'
+    extraProperties: 'sonar.projectBaseDir=/home/vsts/work/1/s/src'
    
     
 
