@@ -57,8 +57,8 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-    sonarQubeRunAnalysis: true
-    sqMavenPluginVersionChoice: 'latest'
+ #   sonarQubeRunAnalysis: true
+ #   sqMavenPluginVersionChoice: 'latest'
 # add these as the last steps (below all the other `task` items under `steps`)
 # to deploy to your app service
 
@@ -73,12 +73,17 @@ steps:
    # cliProjectName: 'spring-framework-petclinic'
 
 - task: SonarCloudPrepare@1
+
   inputs:
     SonarCloud: 'sonarcloud'
     organization: 'fireburn22-github'
-    scannerMode: 'Other'
-    extraProperties: 'sonar.projectkey=fireburn22_spring-framework-petclini
-      sonar.projectname=spring-framework-petclinic'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'fireburn22_spring-framework-petclini'
+    cliProjectName: 'spring-framework-petclinic'
+    cliSources: '.'
+    extraProperties: 'sonar.projectBaseDir=/home/ftpdrop/cobol/project1
+      sonar.sources=src'
     
 
 #- task: SonarCloudAnalyze@1
