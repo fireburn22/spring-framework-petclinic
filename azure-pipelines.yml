@@ -71,7 +71,7 @@ steps:
     cliProjectKey: 'fireburn22_spring-framework-petclini'
     cliProjectName: 'spring-framework-petclinic'
     cliSources: '.'
-    extraProperties: 'sonar.projectBaseDir=/home/vsts/work/1/s/src'
+    extraProperties: 'sonar.projectBaseDir=/home/vsts/work/1/s/target'
    
     
 
