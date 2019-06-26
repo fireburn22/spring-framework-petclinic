@@ -30,7 +30,7 @@ steps:
 #  displayName: List contents of a folder
 
 - script: dir
-  workingDirectory: $(Build.Repository.LocalPath)
+  workingDirectory: $(Build.Repository.LocalPath)/src
   displayName: List contents of a folder
 
 
