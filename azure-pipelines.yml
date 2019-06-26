@@ -1,4 +1,5 @@
 # Maven
+- task: SonarCloudAnalyze@1
 
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
@@ -26,7 +27,17 @@ steps:
 - script: echo $(Build.BinariesDirectory)
 #  workingDirectory: $(Build.Repository.LocalPath)
 #  displayName: List contents of a folder
-  
+
+- script: Dir
+  workingDirectory: $(Build.Repository.LocalPath)
+  displayName: List contents of a folder
+
+
+- script: Dir
+  workingDirectory: $(Build.BinariesDirectory)
+  displayName: List contents of a folder
+
+
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'sonarcloud'
@@ -36,9 +47,6 @@ steps:
     cliProjectKey: 'fireburn22_spring-framework-petclinic'
     cliProjectName: 'spring-framework-petclinic'
     cliSources: '/home/vsts/work/1/b'
-
-- task: SonarCloudAnalyze@1
-
 
 - task: Maven@3
   inputs:
