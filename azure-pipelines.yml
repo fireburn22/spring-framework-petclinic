@@ -61,9 +61,9 @@ steps:
     configMode: 'manual'
     cliProjectKey: 'fireburn22_spring-framework-petclinic'
     cliProjectName: 'spring-framework-petclinic'
-    cliProjectBaseDir" '//'
-    cliSources: 'src'
     
+    cliSources: '/home/vsts/work/1/s/src'
+
 - task: SonarCloudAnalyze@1
 
 - script: dir
