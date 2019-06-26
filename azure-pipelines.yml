@@ -40,12 +40,6 @@ steps:
     SourceFolder: $(system.defaultworkingdirectory)
     Contents: '**'
     TargetFolder: $(build.artifactstagingdirectory)
-
-- task: PublishBuildArtifacts@1
-  displayName: Publish Artifact
-  inputs:
-    PathtoPublish: $(build.artifactstagingdirectory)
-
 - task: SonarCloudPrepare@1
   inputs:
     SonarCloud: 'sonartest'
@@ -57,6 +51,12 @@ steps:
     cliSources: '/home/vsts/work/1/s/.git/'
 
 - task: SonarCloudAnalyze@1
+- task: PublishBuildArtifacts@1
+  displayName: Publish Artifact
+  inputs:
+    PathtoPublish: $(build.artifactstagingdirectory)
+
+
 #- task: AzureWebApp@1
 #  displayName: Azure Web App Deploy
 #  inputs:
