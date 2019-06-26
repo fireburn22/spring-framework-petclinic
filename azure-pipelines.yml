@@ -28,12 +28,12 @@ steps:
 #  workingDirectory: $(Build.Repository.LocalPath)
 #  displayName: List contents of a folder
 
-- script: Dir
+- script: dir
   workingDirectory: $(Build.Repository.LocalPath)
   displayName: List contents of a folder
 
 
-- script: Dir
+- script: dir
   workingDirectory: $(Build.BinariesDirectory)
   displayName: List contents of a folder
 
