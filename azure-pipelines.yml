@@ -84,7 +84,7 @@ steps:
   displayName: Copy Files
   inputs:
     SourceFolder: $(system.defaultworkingdirectory)
-    Contents:*
+    Contents:'*'
     TargetFolder: $(build.artifactstagingdirectory)
 
 - task: PublishBuildArtifacts@1
