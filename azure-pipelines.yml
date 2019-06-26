@@ -1,10 +1,4 @@
 # Maven
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'sonartest'
-    organization: 'fireburn22-github'
-    scannerMode: 'CLI'
-    configMode: 'file'
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
@@ -51,6 +45,12 @@ steps:
   inputs:
     PathtoPublish: $(build.artifactstagingdirectory)
 
+- task: SonarCloudPrepare@1
+  inputs:
+    SonarCloud: 'sonartest'
+    organization: 'fireburn22-github'
+    scannerMode: 'CLI'
+    configMode: 'file'
 #- task: AzureWebApp@1
 #  displayName: Azure Web App Deploy
 #  inputs:
