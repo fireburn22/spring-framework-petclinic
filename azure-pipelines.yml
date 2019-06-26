@@ -70,8 +70,9 @@ steps:
     cliProjectKey: 'fireburn22_spring-framework-petclini'
     cliProjectName: 'spring-framework-petclinic'
     cliSources: '.'
-    extraProperties: 'sonar.projectBaseDir=/home/vsts/work/1/s
-      sonar.sources=src'
+    extraProperties: 
+    'sonar.projectBaseDir=/home/vsts/work/1/s
+     sonar.sources=src'
     
 
 - task: SonarCloudAnalyze@1
