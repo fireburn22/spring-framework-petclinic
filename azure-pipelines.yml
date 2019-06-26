@@ -39,13 +39,7 @@ steps:
   workingDirectory: $(Build.BinariesDirectory)
   displayName: List contents of a folder
 
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'sonarcloud'
-    organization: 'fireburn22-github'
-    scannerMode: 'Other'
-    extraProperties: 'sonar.projectkey=fireburn22_spring-framework-petclini
-      sonar.projectname=spring-framework-petclinic'
+
 
 - task: Maven@3
   inputs:
@@ -82,11 +76,11 @@ steps:
     cliProjectKey: 'fireburn22_spring-framework-petclini'
     cliProjectName: 'spring-framework-petclinic'
     cliSources: '.'
-    extraProperties: 'sonar.projectBaseDir=/home/ftpdrop/cobol/project1
+    extraProperties: 'sonar.projectBaseDir=/home/vsts/work/1/s
       sonar.sources=src'
     
 
-#- task: SonarCloudAnalyze@1
+- task: SonarCloudAnalyze@1
 
 - script: dir
   workingDirectory: $(Build.BinariesDirectory)
