@@ -46,7 +46,7 @@ steps:
     configMode: 'manual'
     cliProjectKey: 'fireburn22_spring-framework-petclinic'
     cliProjectName: 'spring-framework-petclinic'
-    cliSources: '/home/vsts/work/1/b'
+    cliSources: '/home/vsts/work/1/s/src'
 
 - task: Maven@3
   inputs:
