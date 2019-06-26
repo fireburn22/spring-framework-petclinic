@@ -22,9 +22,9 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: dir
-  workingDirectory: $(Build.Repository.LocalPath)
-  displayName: List contents of a folder
+- script: echo $(Build.Repository.LocalPath)
+#  workingDirectory: $(Build.Repository.LocalPath)
+#  displayName: List contents of a folder
   
 - task: SonarCloudPrepare@1
   inputs:
