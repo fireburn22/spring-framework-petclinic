@@ -29,7 +29,7 @@ steps:
   
 - task: SonarCloudPrepare@1
   inputs:
-    SonarCloud: 'sonartest'
+    SonarCloud: 'sonarcloud'
     organization: 'fireburn22-github'
     scannerMode: 'CLI'
     configMode: 'manual'
