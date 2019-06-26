@@ -23,7 +23,7 @@ pool:
 
 steps:
 - script: dir
-  workingDirectory: $(Agent.BuildDirectory)
+  workingDirectory: $(Build.Repository.LocalPath)
   displayName: List contents of a folder
   
 - task: SonarCloudPrepare@1
