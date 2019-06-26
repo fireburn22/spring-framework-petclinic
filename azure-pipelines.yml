@@ -50,7 +50,11 @@ steps:
   inputs:
     SonarCloud: 'sonartest'
     organization: 'fireburn22-github'
-    scannerMode: 'Other'
+    scannerMode: 'CLI'
+    configMode: 'manual'
+    cliProjectKey: 'fireburn22_spring-framework-petclinic'
+    cliProjectName: 'spring-framework-petclinic'
+    cliSources: '.'
 
 - task: SonarCloudAnalyze@1
 #- task: AzureWebApp@1
