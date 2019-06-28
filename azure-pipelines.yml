@@ -82,7 +82,7 @@ steps:
 #- script: dir
  # workingDirectory: $(Build.BinariesDirectory)
  # displayName: List contents of a folder
- - task: Maven@3
+- task: Maven@3
     inputs:
       mavenPomFile: 'pom.xml'
       publishJUnitResults: true
