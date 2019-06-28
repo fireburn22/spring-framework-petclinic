@@ -68,7 +68,6 @@ steps:
    
     
 
-- task: SonarCloudAnalyze@1
 
 #- script: dir
  # workingDirectory: $(Build.BinariesDirectory)
@@ -89,6 +88,7 @@ steps:
 
 # add these as the last steps (below all the other `task` items under `steps`)
 # to deploy to your app service
+- task: SonarCloudAnalyze@1
 
 - task: CopyFiles@2
   displayName: Copy Files
