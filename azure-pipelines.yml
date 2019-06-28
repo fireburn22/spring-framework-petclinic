@@ -83,15 +83,15 @@ steps:
  # workingDirectory: $(Build.BinariesDirectory)
  # displayName: List contents of a folder
 - task: Maven@3
-    inputs:
-      mavenPomFile: 'pom.xml'
-      publishJUnitResults: true
-      testResultsFiles: '**/surefire-reports/TEST-*.xml'
-      javaHomeOption: 'JDKVersion'
-      mavenVersionOption: 'Default'
-      mavenAuthenticateFeed: false
-      sonarQubeRunAnalysis: true
-      sqMavenPluginVersionChoice: 'latest'
+  inputs:
+    mavenPomFile: 'pom.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    sonarQubeRunAnalysis: true
+    sqMavenPluginVersionChoice: 'latest'
 - task: CopyFiles@2
   displayName: Copy Files
   inputs:
