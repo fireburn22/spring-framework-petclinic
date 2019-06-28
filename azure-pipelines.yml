@@ -25,8 +25,7 @@ pool:
 steps:
 - script: echo $(Build.Repository.LocalPath)
 - script: echo $(Build.BinariesDirectory)
-#  workingDirectory: $(Build.Repository.LocalPath)
-#  displayName: List contents of a folder
+
 
 - script: dir
   workingDirectory: $(Build.Repository.LocalPath)
@@ -58,20 +57,8 @@ steps:
    # cliProjectName: 'spring-framework-petclinic'
 
 
-#- task: SonarCloudPrepare@1
-#  inputs:
- ##  organization: 'fireburn22-github'
- #   scannerMode: 'CLI'
-  #  configMode: 'manual'
-   ###cliSources: '/home/vsts/work/1/s/target'
-    #extraProperties: 'sonar.projectBaseDir=/home/vsts/work/1/s'
-   
-    
 
 
-#- script: dir
- # workingDirectory: $(Build.BinariesDirectory)
- # displayName: List contents of a folder
 
 - task: Maven@3
   inputs:
@@ -86,8 +73,7 @@ steps:
    # sonarQubeRunAnalysis: true
    # sqMavenPluginVersionChoice: 'latest'
 
-# add these as the last steps (below all the other `task` items under `steps`)
-# to deploy to your app service
+
 - task: SonarCloudAnalyze@1
 
 - task: CopyFiles@2
