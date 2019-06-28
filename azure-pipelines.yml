@@ -1,4 +1,5 @@
 # Build your Java project and run tests with Apache Maven.
+
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 #kicknewbuild
@@ -34,18 +35,22 @@ steps:
   workingDirectory: $(Build.BinariesDirectory)
   displayName: List contents of a folder
 
-
-
-- task: Maven@3
+- task: SonarCloudPrepare@1
   inputs:
-    mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
-    javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.8'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: false
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+    SonarCloud: 'sonarcloud'
+    organization: 'fireburn22-github'
+    scannerMode: 'Other'
+
+#- task: Maven@3
+ # inputs:
+  #  mavenPomFile: 'pom.xml'
+  #  mavenOptions: '-Xmx3072m'
+  #  javaHomeOption: 'JDKVersion'
+  #  jdkVersionOption: '1.8'
+  #  jdkArchitectureOption: 'x64'
+  #  publishJUnitResults: false
+  #  testResultsFiles: '**/surefire-reports/TEST-*.xml'
+  #  goals: 'package'
  #   sonarQubeRunAnalysis: true
  #   sqMavenPluginVersionChoice: 'latest'
 # add these as the last steps (below all the other `task` items under `steps`)
@@ -62,25 +67,31 @@ steps:
    # cliProjectName: 'spring-framework-petclinic'
 
 
-- task: SonarCloudPrepare@1
-  inputs:
-    SonarCloud: 'sonarcloud'
-    organization: 'fireburn22-github'
-    scannerMode: 'CLI'
-    configMode: 'manual'
-    cliProjectKey: 'fireburn22_spring-framework-petclini'
-    cliProjectName: 'spring-framework-petclinic'
-    cliSources: '/home/vsts/work/1/s/target'
+#- task: SonarCloudPrepare@1
+#  inputs:
+ ##  organization: 'fireburn22-github'
+ #   scannerMode: 'CLI'
+  #  configMode: 'manual'
+   ###cliSources: '/home/vsts/work/1/s/target'
     #extraProperties: 'sonar.projectBaseDir=/home/vsts/work/1/s'
    
     
 
-- task: SonarCloudAnalyze@1
+#- task: SonarCloudAnalyze@1
 
 #- script: dir
  # workingDirectory: $(Build.BinariesDirectory)
  # displayName: List contents of a folder
-  
+ - task: Maven@3
+    inputs:
+      mavenPomFile: 'pom.xml'
+      publishJUnitResults: true
+      testResultsFiles: '**/surefire-reports/TEST-*.xml'
+      javaHomeOption: 'JDKVersion'
+      mavenVersionOption: 'Default'
+      mavenAuthenticateFeed: false
+      sonarQubeRunAnalysis: true
+      sqMavenPluginVersionChoice: 'latest'
 - task: CopyFiles@2
   displayName: Copy Files
   inputs:
