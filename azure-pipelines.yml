@@ -1,6 +1,7 @@
 # Build your Java project and run tests with Apache Maven.
 
 
+
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 #kicknewbuild
@@ -40,7 +41,8 @@ steps:
   inputs:
     SonarCloud: 'sonar'
     organization: 'fireburn22-github'
-    scannerMode: 'Other'
+    scannerMode: 'CLI'
+    configMode: 'file'
 
 
 
@@ -66,7 +68,7 @@ steps:
    
     
 
-#- task: SonarCloudAnalyze@1
+- task: SonarCloudAnalyze@1
 
 #- script: dir
  # workingDirectory: $(Build.BinariesDirectory)
@@ -82,8 +84,8 @@ steps:
     publishJUnitResults: false
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
-    sonarQubeRunAnalysis: true
-    sqMavenPluginVersionChoice: 'latest'
+   # sonarQubeRunAnalysis: true
+   # sqMavenPluginVersionChoice: 'latest'
 
 # add these as the last steps (below all the other `task` items under `steps`)
 # to deploy to your app service
