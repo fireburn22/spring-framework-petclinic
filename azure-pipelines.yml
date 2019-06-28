@@ -41,20 +41,7 @@ steps:
     organization: 'fireburn22-github'
     scannerMode: 'Other'
 
-#- task: Maven@3
- # inputs:
-  #  mavenPomFile: 'pom.xml'
-  #  mavenOptions: '-Xmx3072m'
-  #  javaHomeOption: 'JDKVersion'
-  #  jdkVersionOption: '1.8'
-  #  jdkArchitectureOption: 'x64'
-  #  publishJUnitResults: false
-  #  testResultsFiles: '**/surefire-reports/TEST-*.xml'
-  #  goals: 'package'
- #   sonarQubeRunAnalysis: true
- #   sqMavenPluginVersionChoice: 'latest'
-# add these as the last steps (below all the other `task` items under `steps`)
-# to deploy to your app service
+
 
     
 #- task: SonarCloudPrepare@1
@@ -82,16 +69,22 @@ steps:
 #- script: dir
  # workingDirectory: $(Build.BinariesDirectory)
  # displayName: List contents of a folder
+
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
-    mavenVersionOption: 'Default'
-    mavenAuthenticateFeed: false
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: false
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'package'
     sonarQubeRunAnalysis: true
     sqMavenPluginVersionChoice: 'latest'
+# add these as the last steps (below all the other `task` items under `steps`)
+# to deploy to your app service
+
 - task: CopyFiles@2
   displayName: Copy Files
   inputs:
