@@ -93,6 +93,7 @@ steps:
   inputs:
     PathtoPublish: $(build.artifactstagingdirectory)
 
+- script: echo $(build.artifactstagingdirectory)
 
 #- task: AzureWebApp@1
 #  displayName: Azure Web App Deploy
